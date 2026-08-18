@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: préfixer les URLs avec le domaine définitif une fois le site publié -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc><priority>1.0</priority></url>
+  <url><loc>/prestations</loc><priority>0.9</priority></url>
+  <url><loc>/aides-et-tarifs</loc><priority>0.8</priority></url>
+  <url><loc>/zone-intervention</loc><priority>0.8</priority></url>
+  <url><loc>/a-propos</loc><priority>0.7</priority></url>
+  <url><loc>/temoignages</loc><priority>0.7</priority></url>
+  <url><loc>/faq</loc><priority>0.7</priority></url>
+  <url><loc>/blog</loc><priority>0.7</priority></url>
+  <url><loc>/recrutement</loc><priority>0.6</priority></url>
+  <url><loc>/contact</loc><priority>0.9</priority></url>
+</urlset>

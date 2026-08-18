@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as AidesEtTarifsRouteImport } from './routes/aides-et-tarifs'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as PrestationsRouteImport } from './routes/prestations'
+import { Route as RecrutementRouteImport } from './routes/recrutement'
+import { Route as TemoignagesRouteImport } from './routes/temoignages'
+import { Route as ZoneInterventionRouteImport } from './routes/zone-intervention'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AidesEtTarifsRoute = AidesEtTarifsRouteImport.update({
+  id: '/aides-et-tarifs',
+  path: '/aides-et-tarifs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrestationsRoute = PrestationsRouteImport.update({
+  id: '/prestations',
+  path: '/prestations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecrutementRoute = RecrutementRouteImport.update({
+  id: '/recrutement',
+  path: '/recrutement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TemoignagesRoute = TemoignagesRouteImport.update({
+  id: '/temoignages',
+  path: '/temoignages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZoneInterventionRoute = ZoneInterventionRouteImport.update({
+  id: '/zone-intervention',
+  path: '/zone-intervention',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/prestations': typeof PrestationsRoute
+  '/recrutement': typeof RecrutementRoute
+  '/temoignages': typeof TemoignagesRoute
+  '/zone-intervention': typeof ZoneInterventionRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/prestations': typeof PrestationsRoute
+  '/recrutement': typeof RecrutementRoute
+  '/temoignages': typeof TemoignagesRoute
+  '/zone-intervention': typeof ZoneInterventionRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/prestations': typeof PrestationsRoute
+  '/recrutement': typeof RecrutementRoute
+  '/temoignages': typeof TemoignagesRoute
+  '/zone-intervention': typeof ZoneInterventionRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/aides-et-tarifs'
+    | '/contact'
+    | '/faq'
+    | '/prestations'
+    | '/recrutement'
+    | '/temoignages'
+    | '/zone-intervention'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/aides-et-tarifs'
+    | '/contact'
+    | '/faq'
+    | '/prestations'
+    | '/recrutement'
+    | '/temoignages'
+    | '/zone-intervention'
+    | '/blog/$slug'
+    | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/aides-et-tarifs'
+    | '/contact'
+    | '/faq'
+    | '/prestations'
+    | '/recrutement'
+    | '/temoignages'
+    | '/zone-intervention'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  AidesEtTarifsRoute: typeof AidesEtTarifsRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  PrestationsRoute: typeof PrestationsRoute
+  RecrutementRoute: typeof RecrutementRoute
+  TemoignagesRoute: typeof TemoignagesRoute
+  ZoneInterventionRoute: typeof ZoneInterventionRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aides-et-tarifs': {
+      id: '/aides-et-tarifs'
+      path: '/aides-et-tarifs'
+      fullPath: '/aides-et-tarifs'
+      preLoaderRoute: typeof AidesEtTarifsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prestations': {
+      id: '/prestations'
+      path: '/prestations'
+      fullPath: '/prestations'
+      preLoaderRoute: typeof PrestationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recrutement': {
+      id: '/recrutement'
+      path: '/recrutement'
+      fullPath: '/recrutement'
+      preLoaderRoute: typeof RecrutementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/temoignages': {
+      id: '/temoignages'
+      path: '/temoignages'
+      fullPath: '/temoignages'
+      preLoaderRoute: typeof TemoignagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zone-intervention': {
+      id: '/zone-intervention'
+      path: '/zone-intervention'
+      fullPath: '/zone-intervention'
+      preLoaderRoute: typeof ZoneInterventionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  AidesEtTarifsRoute: AidesEtTarifsRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  PrestationsRoute: PrestationsRoute,
+  RecrutementRoute: RecrutementRoute,
+  TemoignagesRoute: TemoignagesRoute,
+  ZoneInterventionRoute: ZoneInterventionRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
