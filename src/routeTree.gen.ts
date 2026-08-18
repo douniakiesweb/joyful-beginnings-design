@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as AidesEtTarifsRouteImport } from './routes/aides-et-tarifs'
+import { Route as PrestationsRouteImport } from './routes/prestations'
+import { Route as ZoneInterventionRouteImport } from './routes/zone-intervention'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AidesEtTarifsRoute = AidesEtTarifsRouteImport.update({
+  id: '/aides-et-tarifs',
+  path: '/aides-et-tarifs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrestationsRoute = PrestationsRouteImport.update({
+  id: '/prestations',
+  path: '/prestations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZoneInterventionRoute = ZoneInterventionRouteImport.update({
+  id: '/zone-intervention',
+  path: '/zone-intervention',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/prestations': typeof PrestationsRoute
+  '/zone-intervention': typeof ZoneInterventionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/prestations': typeof PrestationsRoute
+  '/zone-intervention': typeof ZoneInterventionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/prestations': typeof PrestationsRoute
+  '/zone-intervention': typeof ZoneInterventionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/aides-et-tarifs'
+    | '/prestations'
+    | '/zone-intervention'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/aides-et-tarifs'
+    | '/prestations'
+    | '/zone-intervention'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/aides-et-tarifs'
+    | '/prestations'
+    | '/zone-intervention'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  AidesEtTarifsRoute: typeof AidesEtTarifsRoute
+  PrestationsRoute: typeof PrestationsRoute
+  ZoneInterventionRoute: typeof ZoneInterventionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +104,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aides-et-tarifs': {
+      id: '/aides-et-tarifs'
+      path: '/aides-et-tarifs'
+      fullPath: '/aides-et-tarifs'
+      preLoaderRoute: typeof AidesEtTarifsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prestations': {
+      id: '/prestations'
+      path: '/prestations'
+      fullPath: '/prestations'
+      preLoaderRoute: typeof PrestationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zone-intervention': {
+      id: '/zone-intervention'
+      path: '/zone-intervention'
+      fullPath: '/zone-intervention'
+      preLoaderRoute: typeof ZoneInterventionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  AidesEtTarifsRoute: AidesEtTarifsRoute,
+  PrestationsRoute: PrestationsRoute,
+  ZoneInterventionRoute: ZoneInterventionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
