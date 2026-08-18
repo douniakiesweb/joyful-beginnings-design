@@ -12,8 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as AidesEtTarifsRouteImport } from './routes/aides-et-tarifs'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrestationsRouteImport } from './routes/prestations'
+import { Route as RecrutementRouteImport } from './routes/recrutement'
 import { Route as TemoignagesRouteImport } from './routes/temoignages'
 import { Route as ZoneInterventionRouteImport } from './routes/zone-intervention'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -34,6 +36,11 @@ const AidesEtTarifsRoute = AidesEtTarifsRouteImport.update({
   path: '/aides-et-tarifs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
@@ -42,6 +49,11 @@ const FaqRoute = FaqRouteImport.update({
 const PrestationsRoute = PrestationsRouteImport.update({
   id: '/prestations',
   path: '/prestations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecrutementRoute = RecrutementRouteImport.update({
+  id: '/recrutement',
+  path: '/recrutement',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TemoignagesRoute = TemoignagesRouteImport.update({
@@ -69,8 +81,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/prestations': typeof PrestationsRoute
+  '/recrutement': typeof RecrutementRoute
   '/temoignages': typeof TemoignagesRoute
   '/zone-intervention': typeof ZoneInterventionRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -80,8 +94,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/prestations': typeof PrestationsRoute
+  '/recrutement': typeof RecrutementRoute
   '/temoignages': typeof TemoignagesRoute
   '/zone-intervention': typeof ZoneInterventionRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -92,8 +108,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/prestations': typeof PrestationsRoute
+  '/recrutement': typeof RecrutementRoute
   '/temoignages': typeof TemoignagesRoute
   '/zone-intervention': typeof ZoneInterventionRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -105,8 +123,10 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/aides-et-tarifs'
+    | '/contact'
     | '/faq'
     | '/prestations'
+    | '/recrutement'
     | '/temoignages'
     | '/zone-intervention'
     | '/blog/$slug'
@@ -116,8 +136,10 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/aides-et-tarifs'
+    | '/contact'
     | '/faq'
     | '/prestations'
+    | '/recrutement'
     | '/temoignages'
     | '/zone-intervention'
     | '/blog/$slug'
@@ -127,8 +149,10 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/aides-et-tarifs'
+    | '/contact'
     | '/faq'
     | '/prestations'
+    | '/recrutement'
     | '/temoignages'
     | '/zone-intervention'
     | '/blog/$slug'
@@ -139,8 +163,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   AidesEtTarifsRoute: typeof AidesEtTarifsRoute
+  ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   PrestationsRoute: typeof PrestationsRoute
+  RecrutementRoute: typeof RecrutementRoute
   TemoignagesRoute: typeof TemoignagesRoute
   ZoneInterventionRoute: typeof ZoneInterventionRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -170,6 +196,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AidesEtTarifsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
@@ -182,6 +215,13 @@ declare module '@tanstack/react-router' {
       path: '/prestations'
       fullPath: '/prestations'
       preLoaderRoute: typeof PrestationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recrutement': {
+      id: '/recrutement'
+      path: '/recrutement'
+      fullPath: '/recrutement'
+      preLoaderRoute: typeof RecrutementRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/temoignages': {
@@ -219,8 +259,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   AidesEtTarifsRoute: AidesEtTarifsRoute,
+  ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   PrestationsRoute: PrestationsRoute,
+  RecrutementRoute: RecrutementRoute,
   TemoignagesRoute: TemoignagesRoute,
   ZoneInterventionRoute: ZoneInterventionRoute,
   BlogSlugRoute: BlogSlugRoute,
