@@ -12,8 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as AidesEtTarifsRouteImport } from './routes/aides-et-tarifs'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrestationsRouteImport } from './routes/prestations'
+import { Route as TemoignagesRouteImport } from './routes/temoignages'
 import { Route as ZoneInterventionRouteImport } from './routes/zone-intervention'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,9 +34,19 @@ const AidesEtTarifsRoute = AidesEtTarifsRouteImport.update({
   path: '/aides-et-tarifs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrestationsRoute = PrestationsRouteImport.update({
   id: '/prestations',
   path: '/prestations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TemoignagesRoute = TemoignagesRouteImport.update({
+  id: '/temoignages',
+  path: '/temoignages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ZoneInterventionRoute = ZoneInterventionRouteImport.update({
@@ -40,28 +54,50 @@ const ZoneInterventionRoute = ZoneInterventionRouteImport.update({
   path: '/zone-intervention',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/faq': typeof FaqRoute
   '/prestations': typeof PrestationsRoute
+  '/temoignages': typeof TemoignagesRoute
   '/zone-intervention': typeof ZoneInterventionRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/faq': typeof FaqRoute
   '/prestations': typeof PrestationsRoute
+  '/temoignages': typeof TemoignagesRoute
   '/zone-intervention': typeof ZoneInterventionRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/aides-et-tarifs': typeof AidesEtTarifsRoute
+  '/faq': typeof FaqRoute
   '/prestations': typeof PrestationsRoute
+  '/temoignages': typeof TemoignagesRoute
   '/zone-intervention': typeof ZoneInterventionRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -69,30 +105,46 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/aides-et-tarifs'
+    | '/faq'
     | '/prestations'
+    | '/temoignages'
     | '/zone-intervention'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/a-propos'
     | '/aides-et-tarifs'
+    | '/faq'
     | '/prestations'
+    | '/temoignages'
     | '/zone-intervention'
+    | '/blog/$slug'
+    | '/blog'
   id:
     | '__root__'
     | '/'
     | '/a-propos'
     | '/aides-et-tarifs'
+    | '/faq'
     | '/prestations'
+    | '/temoignages'
     | '/zone-intervention'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   AidesEtTarifsRoute: typeof AidesEtTarifsRoute
+  FaqRoute: typeof FaqRoute
   PrestationsRoute: typeof PrestationsRoute
+  TemoignagesRoute: typeof TemoignagesRoute
   ZoneInterventionRoute: typeof ZoneInterventionRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -118,11 +170,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AidesEtTarifsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/prestations': {
       id: '/prestations'
       path: '/prestations'
       fullPath: '/prestations'
       preLoaderRoute: typeof PrestationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/temoignages': {
+      id: '/temoignages'
+      path: '/temoignages'
+      fullPath: '/temoignages'
+      preLoaderRoute: typeof TemoignagesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/zone-intervention': {
@@ -132,6 +198,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZoneInterventionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -139,8 +219,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   AidesEtTarifsRoute: AidesEtTarifsRoute,
+  FaqRoute: FaqRoute,
   PrestationsRoute: PrestationsRoute,
+  TemoignagesRoute: TemoignagesRoute,
   ZoneInterventionRoute: ZoneInterventionRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
